@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background-color: #F8F8F8; 
+  font-family: "Mulish", Arial, sans-serif;
+}
+
+button {
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #DCE4F8;
+}
+
+.MuiTableRow-root:hover {
+  background-color: #F1F2F3 !important;
+}
