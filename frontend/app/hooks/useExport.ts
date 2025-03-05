@@ -50,10 +50,10 @@ export const useExportAllParticipants = () => {
         downloadJson(data, filename);
         console.log("Download initiated");
       } else {
-        console.error("❌ No data received for all participants export");
+        console.error(" No data received for all participants export");
       }
     } catch (error) {
-      console.error("❌ Error exporting all participants:", error);
+      console.error("Error exporting all participants:", error);
     } finally {
       console.log("Export process completed, resetting state");
       setIsExporting(false);
@@ -79,7 +79,7 @@ export const useExportParticipantById = () => {
     }
 
     if (!id) {
-      console.error("❌ Cannot export: No participant ID provided");
+      console.error("Cannot export: No participant ID provided");
       return;
     }
 
@@ -105,10 +105,10 @@ export const useExportParticipantById = () => {
         downloadJson(data, filename);
         console.log("Download initiated");
       } else {
-        console.error("❌ No data received for individual participant export");
+        console.error("No data received for individual participant export");
       }
     } catch (error) {
-      console.error(`❌ Error exporting participant ${id}:`, error);
+      console.error(`Error exporting participant ${id}:`, error);
     } finally {
       console.log("Export process completed, resetting state");
       setIsExporting(false);

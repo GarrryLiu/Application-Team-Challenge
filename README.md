@@ -181,3 +181,4 @@ To install and run the project, follow these steps:
 ## Technical Notes
 
 - The original JavaScript files (`data.js`, `index.js`, and `app.js`) were converted to TypeScript for better type safety and to fully leverage tRPC's end-to-end type checking capabilities.
+- The implementation generally follows the provided Figma design, but some adjustments were made based on comprehensive judgment as features were added.

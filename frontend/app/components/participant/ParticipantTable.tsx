@@ -170,7 +170,7 @@ const ParticipantTable: React.FC = () => {
           </Box>
         </Box>
 
-        {/* 表头作为一个独立的行 */}
+        {/* Header as an independent line*/}
         <Box
           sx={{
             display: "flex",
@@ -178,7 +178,7 @@ const ParticipantTable: React.FC = () => {
             alignItems: "center",
             width: "100%",
             backgroundColor: "white",
-            padding: "16px 20px 16px 16px", // 右侧padding调整为20px以对齐单元格
+            padding: "16px 20px 16px 16px", 
             borderRadius: "30px",
             marginBottom: "0px",
           }}

@@ -1,2 +1,2 @@
-// 简化的 AppRouter 类型，用于前端构建
+// Simplified AppRouter type for Frontend
 export type AppRouter = any;
