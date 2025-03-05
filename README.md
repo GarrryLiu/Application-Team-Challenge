@@ -68,7 +68,7 @@ By eliminating unnecessary **re-filtering, re-sorting, and re-scrolling**, smart
 
 ### **Data Export: Enabling Offline Analysis & Future Extensions**
 
-The system provides robust data export capabilities to support **offline analysis** and **reporting requirements**, while also laying the foundation for **future platform extensions**.
+The system provides robust data export capabilities to support **offline analysis** and **reporting requirements**, while also laying the foundation for **future platform extensions** (e.g. Dashboard).
 
 - **Export All Participants**: Allows healthcare administrators to download a complete dataset of all patients with their diagnoses.
 - **Export Individual Patient**: Enables doctors to download specific patient records for offline review or sharing with specialists.
