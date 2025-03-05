@@ -81,10 +81,6 @@ The system provides robust data export capabilities to support **offline analysi
   - Complete ICD code listings
   - Plain-language condition names for each ICD code
   - Diagnosis timestamps
-- **Export Status Indicators**: Provides visual feedback during the export process:
-  - Loading animation during data preparation
-  - Automatic download initiation when ready
-  - Error handling with console logging
 
 This export functionality not only **streamlines documentation workflows** but also **enables future platform extensions**:
 
