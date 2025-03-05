@@ -1,0 +1,24 @@
+services:
+  # A web service for the API
+  - type: web
+    name: api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: # Render assigns a PORT automatically, but we can specify a default
+      - key: FRONTEND_URL
+        fromGroup: frontend-url
+    healthCheckPath: /trpc/healthcheck
+    autoDeploy: true
+    plan: free # Specify the plan (free, starter, etc.)
+
+# Environment variable groups that can be reused across services
+envVarGroups:
+  - name: frontend-url
+    envVars:
+      - key: FRONTEND_URL
+        value: https://app-challenge-private.vercel.app/ # Replace with your actual frontend URL

@@ -23,7 +23,7 @@ function makeDiagnosis(numDiagnoses: number): Diagnosis[] {
   for (let i = 0; i < numDiagnoses; i++) {
     result.push({
       icdCode: faker.helpers.arrayElement(ICD_CODE),
-      timestamp: faker.date.recent({days: 365}),
+      timestamp: faker.date.recent({ days: 365 }),
     });
   }
 
@@ -38,7 +38,10 @@ function makeParticipants(numParticipants: number): Participant[] {
       id: faker.string.uuid(),
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),
-      dateOfBirth: faker.date.past({ years: 10, refDate: new Date(1950, 0, 1) }),
+      dateOfBirth: faker.date.past({
+        years: 10,
+        refDate: new Date(1950, 0, 1),
+      }),
       gender: faker.helpers.arrayElement(["MALE", "FEMALE", "NON-BINARY"]),
       phoneNumber: faker.number.int({ min: 1000000000, max: 9999999999 }),
       patientNotes: faker.helpers.arrayElement([faker.lorem.text(), null]),

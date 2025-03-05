@@ -1,66 +1,104 @@
-# Internship Coding Challenge, Application Team
-## Background
+## **Deployment**  
+- **Frontend**: [Deployed on Vercel](https://app-challenge-private.vercel.app/)  
+- **Backend**: [Deployed on Render](https://app-challenge-private.onrender.com/)  
+- **Note**: Please start the backend before loading the frontend.
 
-The Application team is responsible for the full-stack development of Intus Care's core product offerings. This team is tasked with building and maintaining user interfaces, developing robust APIs, integrating with databases, managing server-side logic, and more. Developers on the Application team are, as a result, interdisciplinary by nature and work across a variety of tasks, encompassing both frontend and backend development.
+## **Challenge & User Needs**  
 
-As an intern, you will be integrated into the Application team as a full-fledged developer, no different from any other engineer on the team. You will be engaged in the team's sprints following the Agile framework, carry a balance of work similar to other developers, and participate in refinement and technical planning meetings, among other responsibilities.
+The system helps medical professionals **track and manage patient data** by providing:  
 
-The Application team's current focus is on developing CareHub, a flagship workflow tool for PACE programs. The tech stack used consists of `TypeScript`, `React`, `Next.js`, `Material-UI`, and `MongoDB`. Familiarity with `tRPC` APIs, `Zod`, `Zustand`, and `Playwright` may be helpful as well.
+- A **comprehensive patient list** with associated ICD codes.  
+- **Sorting and filtering** to organize patient information.  
+- A **detailed patient view** displaying ICD codes in both numerical format and plain English.  
 
-## Challenge Specification: Basic Participant List Feature
-### User Story:
+### **Users**  
 
-Your client wants to be able to keep track of the participant (ppt) information for their organization. The first feature is a list of participants with the corresponding ICD codes for each ppt. The client would like to see a list of all participants in their organization and sort them based on how many codes each ppt has. They also need to see each partipant's codes (in both ICD-code format and plain English) in a focus view, similar to a modal, for each person. In consultation with Intus Care designers, they have also finalized a Figma kit for the approximate design of this feature, included in the `Resources` section, although they are not firm on you implementing the exact design - it is up to your discretion.
+- **Doctors & Nurses**: Need to quickly locate and prioritize patients based on conditions, severity, and demographics to make informed treatment decisions.  
+- **Healthcare Administrators**: Require tools to categorize and analyze patient data for effective resource allocation.  
 
-### Instructions:
+## **Features & How They Achieve the Goal**  
 
-Implement the User Story to the best of your ability in a fork of this repository. 
+### **Sorting: Prioritizing Patients Efficiently**  
 
-It is your responsibility to bootstrap the repository as you see fit (with a programming language of your choice). If you plan on utilizing a framework and/or component library, we respectively recommend `Next.js` and `Material-UI` since they are what the Application team uses, but this is ultimately up to your discretion and comfort.
+Sorting allows doctors and administrators to **quickly focus on the most relevant patients** without manually scanning through long lists.  
 
-Make sure to familiarize yourself with the `Resources` section and read the `Notes` section in detail.
+- **Sort by Name (A-Z / Z-A)**: Helps quickly locate a specific patient when searching by name.  
+- **Sort by ICD Code Count (Ascending/Descending)**: Ensures that **patients with multiple diagnoses receive immediate attention**, which is critical for handling complex cases efficiently.  
 
+By providing structured views, sorting **reduces time spent searching** and helps medical professionals make faster decisions.  
 
-### Resources:
+### **Advanced Search: Quickly Finding the Right Patient**  
 
-The few existing resources you are provided with in the repository include:
+A robust search system **eliminates manual filtering**, ensuring **immediate access to critical patient information**.  
 
-- A simple Express API which provides a ```GET /participants``` route for fetching ppt information (including participant names and their ICD codes). To start the API server, run ```node ./api/index.js``` from the repository's root directory.
-- Icons and logo assets to use (formatting choices are up to you, as is your usage of these assets). 
+- **Search by Name** (full/partial match): Enables quick lookup when only part of a name is remembered.  
+- **Search by ICD Code (Single & Multiple Codes)**: Retrieves **all patients with one or multiple ICD codes**, enabling **condition-based patient grouping**.  
+- **Search by Disease Category (Full ICD-10 Standard Classification)**: Supports filtering by **any official ICD-10 category**, making it easier to identify relevant cases even when exact codes are unknown.  
+- **Search by Gender**: Helps identify gender-specific conditions.  
+- **Search by Age Range**: Prioritizes elderly patients who require specialized care.  
+- **Multi-Filter Search**: Ensures **precise patient segmentation**, allowing doctors to combine different filters.  
+- **Search & View History Preservation**:  
+  - **Remembers previous searches** so users can return without re-entering queries.  
+  - **Preserves scroll position and view state**: If a doctor clicks into a patient's file, the list remains at the same position when they return, preventing disorientation and **saving time in navigation**.  
 
-Additional important resources:
-- Use the Clinial Table Search Service provided by the National Library of Medicine (linked [here](https://clinicaltables.nlm.nih.gov/apidoc/icd10cm/v3/doc.html)) to retrieve the plain English names for the associated ICD codes.
-- Use the Figma kit (linked [here]( https://www.figma.com/file/5xvyEkogl7FVbl5hbiJptO/PptListFeature?node-id=0%3A1
-)) for a hi-fi prototype of ideal behavior and styling for the app. You can also press play in the upper right corner to click through the prototype's behavior.
-We have provided the styling specifications (hexcode, drop shadow, border radius, etc.) for you in hopes of making the styling portion easier, as we are trying to test functionality, reusability, and responsiveness more than styling perfection. 
+These search capabilities **reduce time-consuming manual processes**, allowing doctors to **focus on patient care rather than administrative tasks**.  
 
+### **User Interface & Data Presentation: Ensuring Clarity & Accessibility**  
 
-### Notes:
+A well-structured UI is essential for **reducing cognitive load** when interacting with large datasets.  
 
-#### Base Features
-- Participant list view with ICD code count.
-- Participant focus view with ICD code and condition name list.
+- **Scrollable Patient List & Pagination**: Provides **smooth navigation**, ensuring that large datasets remain manageable.  
+- **Detailed Patient Cards** (gender, age displayed directly): Eliminates extra clicks, allowing **quick decision-making**.  
+- **Scrollable ICD Code View**: Ensures that **patients with multiple conditions remain easy to review** without cluttering the interface.  
+- **Responsive Design**: Enables seamless **use across different devices**, ensuring accessibility for healthcare professionals in different environments.  
 
-#### Extra Features
-- Sorting filter for Ppt list view: default to sorting highest to lowest, can be toggled to sort from lowest to highest.
-- Bonus points: make the sorting filter extensible to sort by Partipant name (alphabetical).
+By making patient data **visually intuitive and well-organized**, the UI allows medical professionals to **process information faster and with less effort**.  
 
-#### Areas to Focus on 
-- Extensibility of the ppt list component,
-- Routing and saving history of navigation between list and focus view, with the possibility of added pages to the app in the future, and
-- Any other element(s) you feel may benefit from further improvement. This challenge is meant to be open-ended, so please do not feel constrained by the specifications. Feel free to be creative!
+### **Smart Data Management: Reducing Repetitive Work & Improving Workflow**  
 
+Healthcare professionals often navigate back and forth between different pages. Smart data management ensures that **sorting, search settings, and navigation remain consistent**, preventing repetitive work.  
 
+- **State Management with `ParticipantContext`**: Keeps search and sorting states intact, reducing unnecessary API calls and reloading delays.  
+- **Persistent Search, Sorting & View State**:  
+  - Saves search queries and sorting preferences to **prevent redundant filtering**.  
+  - **Remembers scroll position & page state**: Ensures users can pick up where they left off, improving efficiency when reviewing large datasets.  
 
-### Submission
+By eliminating unnecessary **re-filtering, re-sorting, and re-scrolling**, smart data management **enhances efficiency and usability**, ensuring that patient management workflows remain smooth and intuitive.  
 
-Fork this repository and reply to the challenge email with a link to your fork when you have completed it.
+## **Tech Stack**  
 
-Good luck!
+### **Frontend**  
+- **Next.js 14** – Supports **server-side rendering (SSR)** and **client-side navigation**.  
+- **TypeScript** – Ensures **type safety** and better developer experience.  
+- **Material-UI (MUI)** – Provides **consistent UI components** for tables, buttons, and cards.  
+- **React Context API** – Manages **global state efficiently**.  
 
+### **Backend**  
+- **tRPC** – Enables **type-safe API communication** between frontend and backend.  
+- **Zod** – Ensures **API input validation** and **data integrity**.  
+- **Express** – Handles **API requests and routing**.  
+- **Axios** – Fetches **ICD code details** from the **Clinical Table Search Service API**.  
 
-### Features Implemented:
+### **State Management & Data Handling**  
+- **URL Parameter Synchronization** – Maintains **filters, sorting, and pagination** in the URL.  
+- **State Persistence** – Preserves **user preferences** for filters and sorting.  
+- **Data Caching** – Uses **React Query** to **minimize redundant API calls**. 
 
-Backend:
-- query participant info with their unique id
-- 
+## Installation & Running Instructions
+
+To install and run the project, follow these steps:
+
+1. Install dependencies by running `npm install` in the project root directory.
+
+2. Start the API server:
+   - `cd api`
+   - `npx ts-node index.ts`
+
+3. Start the frontend:
+   - `cd frontend`
+   - `npm run dev`
+
+4. Open your browser and visit **http://localhost:3000**.
+
+   - If port `3000` is occupied, the application will switch to port `3001` automatically.
+   - You can manually set a different port by running: `npm run dev -- --port=3001`.

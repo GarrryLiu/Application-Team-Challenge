@@ -1,9 +1,7 @@
 import http from "http";
 import { app } from "./app";
-// import cors from "cors"; 
-// app.use(cors());
 
-const PORT: number = 5000;
+const PORT: number = parseInt(process.env.PORT || "8080", 10);
 
 function startServer(): void {
   const server = http.createServer(app);

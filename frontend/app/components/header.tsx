@@ -1,4 +1,4 @@
-"use client";  
+"use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -10,10 +10,10 @@ const Header = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);  
+    setMounted(true);
   }, []);
 
-  if (!mounted) return null; 
+  if (!mounted) return null;
 
   return (
     <Box
@@ -21,8 +21,12 @@ const Header = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "16px 32px",
+        padding: { xs: "12px 16px", sm: "16px 32px" }, // Responsive padding
         boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
+        position: "sticky",
+        top: 0,
+        zIndex: 1100,
+        backgroundColor: "white",
       }}
     >
       <Image
@@ -30,15 +34,18 @@ const Header = () => {
         alt="IntusCare Logo"
         width={300}
         height={100}
-        style={{ cursor: "pointer" }}
+        style={{
+          cursor: "pointer",
+          maxWidth: "100%", // Ensure image doesn't overflow container
+          height: "auto", // Maintain aspect ratio
+        }}
         onClick={() => router.push("/")}
       />
       <Typography
         variant="h6"
         sx={{ fontWeight: "bold", color: "#062DBF", cursor: "pointer" }}
         onClick={() => router.push("/")}
-      >
-      </Typography>
+      ></Typography>
     </Box>
   );
 };
